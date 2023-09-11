@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-09-11T07:21:05.138Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 OPR/101.0.0.0" etag="SZUVIoOSttdz-D3H6hng" version="21.7.4" type="github">
+<mxfile host="app.diagrams.net" modified="2023-09-11T10:12:59.536Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36 OPR/101.0.0.0" etag="2wRm3GxqqXal_C5Uyxk5" version="21.7.4" type="github">
   <diagram name="Page-1" id="lScZu5cPEZeXSfzCihXA">
     <mxGraphModel dx="1741" dy="2058" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -43,7 +43,7 @@
         <mxCell id="vGmaRJxQzVd5IO2YTOum-2" value="User" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
           <mxGeometry x="40" y="290" width="40" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="vGmaRJxQzVd5IO2YTOum-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=blockThin;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="vGmaRJxQzVd5IO2YTOum-4">
+        <mxCell id="vGmaRJxQzVd5IO2YTOum-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=block;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="vGmaRJxQzVd5IO2YTOum-4">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="60" y="630" as="sourcePoint" />
             <mxPoint x="60" y="360" as="targetPoint" />
@@ -117,6 +117,9 @@
         </mxCell>
         <mxCell id="vGmaRJxQzVd5IO2YTOum-84" value="Share cart" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="vGmaRJxQzVd5IO2YTOum-80">
           <mxGeometry x="120" y="150" width="95" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="vGmaRJxQzVd5IO2YTOum-95" value="Share cart" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="vGmaRJxQzVd5IO2YTOum-80">
+          <mxGeometry x="120" y="90" width="95" height="50" as="geometry" />
         </mxCell>
         <mxCell id="vGmaRJxQzVd5IO2YTOum-87" value="Add own products" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="vGmaRJxQzVd5IO2YTOum-8">
           <mxGeometry x="35" y="670" width="95" height="50" as="geometry" />
