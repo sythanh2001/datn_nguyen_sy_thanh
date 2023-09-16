@@ -3,23 +3,29 @@ import UserModel from "@/models/userModel";
 import NextAuth, { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
 import Google from "next-auth/providers/google";
+import GitHub from "next-auth/providers/github";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/lib/mongodb";
 
 export const authOptions: NextAuthOptions = {
-  session: { strategy: "jwt" },
+  session: { strategy: "jwt", maxAge: 4 * 60 * 60 },
+
   adapter: MongoDBAdapter(clientPromise),
   providers: [
+    GitHub({
+      clientId: process.env.GITHUB_ID as string,
+      clientSecret: process.env.GITHUB_SECRET as string,
+    }),
     Google({
       clientId: process.env.GOOGLE_ID as string,
       clientSecret: process.env.GOOGLE_SECRET as string,
-      httpOptions: {
-        timeout: 40000,
-      },
     }),
     Credentials({
       type: "credentials",
-      credentials: {},
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials, req) {
         const { email, password } = credentials as {
           email: string;
@@ -35,26 +41,22 @@ export const authOptions: NextAuthOptions = {
         return {
           name: user.name,
           email: user.email,
-          role: user.role,
+          image: user.image,
           id: user._id,
         };
       },
     }),
   ],
   callbacks: {
-    jwt(params: any) {
-      if (params.user?.role) {
-        params.token.role = params.user.role;
-        params.token.id = params.user.id;
-      }
-      return params.token;
+    async jwt({ token, user, session, trigger }) {
+      return token;
     },
-    session({ session, token }) {
-      if (session.user) {
-        (session.user as { id: string }).id = token.id as string;
-        (session.user as { role: string }).role = token.role as string;
-      }
-      return session;
+    async session({ session, token, user }) {
+      let customSessionUserData = {
+        ...session,
+        user: { ...session.user, id: token.sub },
+      };
+      return customSessionUserData;
     },
   },
 };

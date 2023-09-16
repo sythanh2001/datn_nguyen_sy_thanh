@@ -10,9 +10,9 @@ export default async function PrivateLayout({
 }: React.PropsWithChildren) {
   const session = await getServerSession(authOptions);
   const user = session?.user as { role: string } | undefined;
-  console.log("🚀 ~ file: layout.tsx:13 ~ user:", user)
+  console.log("🚀 ~ file: layout.tsx:13 ~ user:", user);
   const isAdmin = user?.role === "admin";
-  if (!isAdmin) redirect("/auth/sing-in");
+  if (!isAdmin) redirect("/");
 
   return <>{children}</>;
 }

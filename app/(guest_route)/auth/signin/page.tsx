@@ -72,8 +72,11 @@ const LoginPage = () => {
           </button>
         </form>
 
-        <button className="btn" onClick={()=>signIn("google")}>
+        <button className="btn" onClick={() => signIn("google")}>
           Google
+        </button>
+        <button className="btn" onClick={() => signIn("github")}>
+          Github
         </button>
       </div>
     </div>

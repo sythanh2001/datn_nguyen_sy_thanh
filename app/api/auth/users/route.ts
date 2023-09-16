@@ -18,7 +18,6 @@ interface NewUserResponse {
 type NewResponse = NextResponse<{ user?: NewUserResponse; error?: string }>;
 
 export const POST = async (req: Request): Promise<NewResponse> => {
-  console.log("🚀 ~ file: route.ts:43 ~ POST ~ POST:");
   const body = (await req.json()) as NewUserRequest;
 
   await startDb();
@@ -35,6 +34,7 @@ export const POST = async (req: Request): Promise<NewResponse> => {
     user: {
       id: user.id.toString(),
       email: user.email,
+      image: user.image,
       name: user.name,
       role: user.role,
     },

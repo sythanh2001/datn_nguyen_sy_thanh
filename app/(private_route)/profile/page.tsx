@@ -5,9 +5,9 @@ export interface IProfileProps {}
 
 export default function Profile(props: IProfileProps) {
   const { data, status } = useSession();
-  console.log("🚀 ~ file: page.tsx:8 ~ Profile ~ data:", data)
+  console.log("🚀 ~ file: page.tsx:8 ~ Profile ~ data:", data);
   const isAuth = status == "authenticated";
-  
+
   return (
     <>
       {isAuth && <button onClick={() => signOut()}>Logout</button>}

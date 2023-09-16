@@ -5,6 +5,9 @@ import bcrypt from "bcrypt";
 interface UserDocument extends Document {
   email: string;
   name: string;
+  image: string;
+  wishlist: [string];
+  cart: [string];
   password: string;
   role: "seller" | "user" | "admin";
 }
@@ -15,6 +18,7 @@ interface Methods {
 const userSchema = new Schema<UserDocument, {}, Methods>({
   email: { type: String, required: true, unique: true },
   name: { type: String, required: true, trim: true },
+  image: { type: String },
   password: { type: String, required: true },
   role: { type: String, enum: ["seller", "user", "admin"], default: "user" },
 });
