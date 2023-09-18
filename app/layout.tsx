@@ -3,6 +3,8 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { DefaultHeader } from "@/components/DefaultHeader";
+import { DefaultFooter } from "@/components/DefaultFooter";
+import { Providers } from "@/components/Redux/Provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,8 +22,11 @@ export default function RootLayout({
     <AuthProvider>
       <html lang="en">
         <body className={inter.className}>
-          <DefaultHeader></DefaultHeader>
-          {children}
+          <Providers>
+            <DefaultHeader></DefaultHeader>
+            {children}
+            <DefaultFooter></DefaultFooter>
+          </Providers>
         </body>
       </html>
     </AuthProvider>

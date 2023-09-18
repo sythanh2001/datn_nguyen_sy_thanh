@@ -9,7 +9,7 @@ export default async function PrivateLayout({
   children,
 }: React.PropsWithChildren) {
   const session = await getServerSession(authOptions);
-  if (!session?.user) redirect("/auth/login");
+  if (!session?.user) redirect("/auth/signin");
 
   return <>{children}</>;
 }

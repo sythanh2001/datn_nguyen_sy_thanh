@@ -9,7 +9,6 @@ import clientPromise from "@/lib/mongodb";
 
 export const authOptions: NextAuthOptions = {
   session: { strategy: "jwt", maxAge: 4 * 60 * 60 },
-
   adapter: MongoDBAdapter(clientPromise),
   providers: [
     GitHub({

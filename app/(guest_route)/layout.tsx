@@ -8,8 +8,8 @@ export interface IPrivateLayoutProps {}
 export default async function PrivateLayout({
   children,
 }: React.PropsWithChildren) {
-  const session = await getServerSession(authOptions);
-  if (session) redirect("/profile");
+  // const session = await getServerSession(authOptions);
+  // if (session) redirect("/profile");
 
   return <>{children}</>;
 }
