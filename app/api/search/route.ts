@@ -2,8 +2,8 @@ import { NextResponse, NextRequest } from "next/server";
 
 import { useSearchParams } from "next/navigation";
 export const GET = async (req: NextRequest) => {
-  console.log(req.nextUrl.searchParams);
-  console.log(req.nextUrl.searchParams.get("category"));
+  // console.log(req.nextUrl.searchParams);
+  // console.log(req.nextUrl.searchParams.get("category"));
 
   return NextResponse.json([
     {

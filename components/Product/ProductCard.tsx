@@ -143,7 +143,7 @@ export function ProductCard({
   const isWishlist = false;
   const router = useRouter();
   return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+    <div className="card card-compact bg-base-100 shadow-xl">
       <figure
         className="cursor-pointer"
         onClick={() => router.push(`/product/${id}`)}

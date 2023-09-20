@@ -29,7 +29,7 @@ function Wishlist({ quantity }: { quantity: number }) {
         <div className="indicator">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className={`h-6 w-6 ${false ? "fill-red-600" : "fill-none"}`}
+            className={`h-6 w-6 fill-none`}
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
@@ -41,7 +41,9 @@ function Wishlist({ quantity }: { quantity: number }) {
             />
           </svg>
           {quantity > 0 && (
-            <span className="badge badge-sm indicator-item">{quantity}</span>
+            <span className="badge badge-sm indicator-item bg-blue-400">
+              {quantity}
+            </span>
           )}
         </div>
       </label>
@@ -69,7 +71,9 @@ function Cart({ quantity }: { quantity: number }) {
             />
           </svg>
           {quantity > 0 && (
-            <span className="badge badge-sm indicator-item">{quantity}</span>
+            <span className="badge badge-sm indicator-item bg-blue-400">
+              {quantity}
+            </span>
           )}
         </div>
       </label>
@@ -79,7 +83,7 @@ function Cart({ quantity }: { quantity: number }) {
       >
         <div className="card-body">
           <span className="font-bold text-lg">{quantity} Sản Phẩm</span>
-          <span className="text-info">Subtotal: $999</span>
+          {/* <span className="text-info">Subtotal: $999</span> */}
           <div className="card-actions">
             <button className="btn btn-primary btn-block">Xem Giỏ Hàng</button>
           </div>
@@ -175,7 +179,7 @@ function UserAuth() {
                 </Link>
                 <span>
                   Bạn chưa có tài khoản ?
-                  <Link href={"/auth/register"} className="text-blue-500">
+                  <Link href={"/auth/register"} className="link">
                     Đăng ký ngay
                   </Link>
                 </span>
@@ -187,7 +191,30 @@ function UserAuth() {
     </>
   );
 }
-
+function Menu() {
+  return (
+    <div className="flex-1">
+      <ul className="menu menu-horizontal px-1">
+        <li>
+          <Link href={"/posters/all"}>Browse Posters</Link>
+        </li>
+        <li>
+          <details>
+            <summary>Parent</summary>
+            <ul className="p-2 bg-base-100">
+              <li>
+                <a>Link 1</a>
+              </li>
+              <li>
+                <a>Link 2</a>
+              </li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  );
+}
 export function DefaultHeader(props: IDefaultHeaderProps) {
   const router = useRouter();
   const globalStore = useSelector((state: RootState) => state.global);
@@ -195,9 +222,11 @@ export function DefaultHeader(props: IDefaultHeaderProps) {
   return (
     <div className="sticky top-0 z-50 navbar bg-base-100">
       <div className="flex-1">
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <Link href={"/"} className="btn btn-ghost normal-case text-xl">
+          daisyUI
+        </Link>
       </div>
-
+      <Menu></Menu>
       <div className="flex-none gap-2">
         <Search></Search>
         <Wishlist quantity={globalStore.user.items.wishlist.length}></Wishlist>

@@ -24,8 +24,10 @@ export default function RootLayout({
         <body className={inter.className}>
           <Providers>
             <DefaultHeader></DefaultHeader>
-            {children}
-            <DefaultFooter></DefaultFooter>
+            <div className="ml-52 mr-52">
+              {children}
+              <DefaultFooter></DefaultFooter>
+            </div>
           </Providers>
         </body>
       </html>
